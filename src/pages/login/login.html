@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label color="{{ inputColor }}" floating>Username</ion-label>
+            <ion-input [(ngModel)]="username" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input [(ngModel)]="password" type="password"></ion-input>
+        </ion-item>
+        <div><!-- Fix to align the line of the password field, there's a bug in ionic 2.0.1 where the last child of an ion-list has a line that is too long --></div>
+    </ion-list>
+    <button ion-button (click)="login(username, password)">Login</button>
+    <div *ngIf="errorMessage">{{ errorMessage }}</div>
+</ion-content>

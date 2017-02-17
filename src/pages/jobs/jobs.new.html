@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>New Job</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Target</ion-label>
+            <ion-input [(ngModel)]="target" type="text">{{ target }}</ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Function</ion-label>
+            <ion-input [(ngModel)]="func" type="text">{{ func }}</ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Arguments</ion-label>
+            <ion-input [(ngModel)]="args" type="text"></ion-input>
+        </ion-item>
+        <div><!-- Fix to align the line of the password field, there's a bug in ionic 2.0.1 where the last child of an ion-list has a line that is too long --></div>
+    </ion-list>
+    <button ion-button (click)="runJob(target, func, args)">Start Job</button>
+    <div *ngIf="errorMessage">{{ errorMessage }}</div>
+</ion-content>

@@ -1,0 +1,52 @@
+{
+  "name": "ionic-hello-world",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
+  "scripts": {
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "ionic:build": "ionic-app-scripts build",
+    "ionic:serve": "ionic-app-scripts serve"
+  },
+  "dependencies": {
+    "@angular/common": "2.2.1",
+    "@angular/compiler": "2.2.1",
+    "@angular/compiler-cli": "2.2.1",
+    "@angular/core": "2.2.1",
+    "@angular/forms": "2.2.1",
+    "@angular/http": "2.2.1",
+    "@angular/platform-browser": "2.2.1",
+    "@angular/platform-browser-dynamic": "2.2.1",
+    "@angular/platform-server": "2.2.1",
+    "@ionic/storage": "1.1.7",
+    "ionic-angular": "2.0.1",
+    "ionic-native": "2.4.1",
+    "ionicons": "3.0.0",
+    "rxjs": "5.0.0-beta.12",
+    "sw-toolbox": "3.4.0",
+    "zone.js": "0.6.26"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "1.0.0",
+    "typescript": "2.0.9",
+    "grunt": "~0.4.5",
+    "grunt-autoprefixer": "~2.2.0",
+    "grunt-wiredep": "^2.0.0",
+    "grunt-concurrent": "1.0.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-connect": "~0.9.0",
+    "grunt-contrib-copy": "~0.7.0",
+    "grunt-contrib-cssmin": "~0.11.0",
+    "grunt-contrib-htmlmin": "~0.3.0",
+    "grunt-contrib-jshint": "~0.11.0",
+    "grunt-contrib-uglify": "~0.7.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-newer": "~1.1.0",
+    "grunt-usemin": "~3.0.0",
+    "load-grunt-tasks": "~3.1.0",
+    "time-grunt": "~1.0.0"
+  },
+  "description": "saltui: An Ionic project"
+}

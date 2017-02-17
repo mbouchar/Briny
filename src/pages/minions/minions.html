@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h1>Minions:</h1>
+    <ion-list *ngIf="minions">
+        <ion-item *ngFor="let minion of minions">
+            <h2><strong>Id:</strong> {{ minion.id }}</h2>
+            <p *ngFor="let grain of minion.grains | keys"><strong>{{ grain.key }}:</strong> {{ grain.value }}</p>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Jobs details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h1>Job:</h1>
+    <ion-item>
+        <h2>Id: {{ job.id }}</h2>
+        <p item-right>{{ job.startTime }}</p>
+        <p>Job: {{ job.lowstate.target }} {{ job.lowstate.func }} {{ job.lowstate.arguments }}</p>
+        <p>User: {{ job.user }}</p>
+    </ion-item>
+    <h2>Results:</h2>
+    <ion-list *ngIf="job.details">
+        <ion-item *ngFor="let result of job.details.results">
+            <h2>Id: {{ result.minion }}</h2>
+            <p>{{ result.result }}</p>
+        </ion-item>
+    </ion-list>
+</ion-content>
