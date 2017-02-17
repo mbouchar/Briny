@@ -17,7 +17,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import { Http, Response, ResponseType, Headers, RequestOptions } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
