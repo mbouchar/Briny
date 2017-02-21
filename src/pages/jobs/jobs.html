@@ -9,6 +9,8 @@
 
 <!-- @todo: paging -->
 <ion-content padding>
+    <button ion-button (click)="getJobs()">Refresh</button>
+    <button ion-button (click)="newJob()">New job</button>
     <h1>Jobs:</h1>
     <ion-list *ngIf="jobs">
         <ion-item *ngFor="let job of jobs">
@@ -21,6 +23,4 @@
             <button ion-button item-right (click)="runJob(job.lowstate)">Restart</button>
         </ion-item>
     </ion-list>
-    <button ion-button (click)="getJobs()">Refresh</button>
-    <button ion-button (click)="newJob()">New job</button>
 </ion-content>

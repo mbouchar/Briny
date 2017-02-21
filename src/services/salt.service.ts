@@ -33,6 +33,7 @@ import { Minion } from './salt/minion';
 
 @Injectable()
 export class SaltService {
+// @todo: configurable
     private apiUrl:string = '/api';
     private loginUrl: string;
     private logoutUrl: string;
