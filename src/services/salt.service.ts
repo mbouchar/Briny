@@ -278,35 +278,31 @@ console.log(ret[0].Result);
         return minions;
     }
 
-
-// @todo: use formatError
     // https://angular.io/docs/ts/latest/api/http/index/Response-class.html
     private handleError(error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
-        let errMsg: string;
-        if (error instanceof Response) {
-            if (error.status === 0) {
-                errMsg = `The browser didn't allow the call to the API endpoint. Please check that the CORS headers are set correctly`;
-            } else {
-                const body = error.json() || '';
-                const err = body.error || JSON.stringify(body);
-                errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-            }
-        } else {
-            errMsg = error.message ? error.message : error.toString();
-        }
+        let errMsg: string = this.formatError(error);
         return Observable.throw(errMsg);
     }
 
     private formatError(error: Response | any): string {
-        let errMsg: string;
+        let errMsg: string = '';
         if (error instanceof Response) {
             if (error.status === 0) {
                 errMsg = `The browser didn't allow the call to the API endpoint. Please check that the CORS headers are set correctly`;
             } else {
-                const body = error.json() || '';
-                const err = body.error || JSON.stringify(body);
-                errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+                let body: any = undefined;
+                try {
+                    body = error.json();
+                } catch (err) { }
+                
+                if (body !== undefined) {
+                    errMsg = `${error.status} - ${error.statusText || ''} ${body.error || JSON.stringify(body)}`;
+                } else if (error.statusText !== '') {
+                    errMsg = `${error.status} - ${error.statusText || ''}`;
+                } else {
+                    errMsg = `${error.status}`;
+                }
             }
         } else {
             errMsg = error.message ? error.message : error.toString();
