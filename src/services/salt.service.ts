@@ -265,22 +265,33 @@ console.log(ret[0].Result);
 
     private extractMinions(res: Response): Array<Minion> {
         let body = res.json();
-        let minionList = body.return || [{ }];
+        let returnValue = body.return || [{ }];
         let minions = new Array<Minion>();
-        
-        for (let minionId of Object.keys(minionList[0]).sort()) {
+
+        // Validate the return value
+        if (returnValue === undefined) {
+            throw "Empty response returned from the Salt API";
+        } else if (typeof returnValue !== "object" || typeof returnValue[0] !== "object") {
+            throw returnValue;
+        }
+
+        // Parse the minion list
+        let minionList = returnValue[0]
+        for (let minionId of Object.keys(minionList).sort()) {
             let minion = new Minion();
             minion.id = minionId;
-            minion.grains = minionList[0][minionId];
+            minion.grains = minionList[minionId];
             minions.push(minion);
         }
-    console.log(minions);
+
         return minions;
     }
 
     // https://angular.io/docs/ts/latest/api/http/index/Response-class.html
     private handleError(error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
+    console.log(error);
+    console.log(this);
         let errMsg: string = this.formatError(error);
         return Observable.throw(errMsg);
     }
